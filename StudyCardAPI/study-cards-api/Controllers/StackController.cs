@@ -32,7 +32,6 @@ namespace study_cards_api.Controllers
                     .Select(c => new { id = c.Id, word = c.Word, definition = c.Definition })
                 .ToArray() });
             string response = JsonConvert.SerializeObject(stack);
-            Console.WriteLine(response);
             return response;
         }
 

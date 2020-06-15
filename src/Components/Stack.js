@@ -1,21 +1,7 @@
 import React, {Component} from 'react';
 import { render } from '@testing-library/react';
+import Card from './Card';
 import axios from 'axios';
-
-class Card extends Component{
-    state = {
-        id: 0,
-        word: null,
-        description: null,
-    };
-    render(){
-        return(
-            <div>
-                <p>This is the card component!</p>
-            </div>
-        )
-    }
-}
 
 class Stack extends Component {
     state = {
@@ -24,7 +10,7 @@ class Stack extends Component {
         cards: [],
     }
     componentDidMount() {
-        axios.get('https://localhost:44393/api/collection/0')
+        axios.get('https://localhost:44393/api/collection')
         .then(response => {
             console.log(response.data);
         })

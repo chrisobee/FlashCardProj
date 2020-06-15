@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using study_cards_api.Data;
 using study_cards_api.Models;
+using Newtonsoft.Json;
 
 namespace study_cards_api.Controllers
 {
@@ -17,6 +19,21 @@ namespace study_cards_api.Controllers
         public StackController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        [HttpGet]
+        public string Get(int id)
+        {
+            var stack = _context.Stacks.Where(s => s.Id == id)
+                .Select(s => new { 
+                    id = s.Id, 
+                    title = s.Title, 
+                    cards = _context.Cards.Where(c => c.StackId == s.Id)
+                    .Select(c => new { id = c.Id, word = c.Word, definition = c.Definition })
+                .ToArray() });
+            string response = JsonConvert.SerializeObject(stack);
+            Console.WriteLine(response);
+            return response;
         }
 
         [HttpPost]

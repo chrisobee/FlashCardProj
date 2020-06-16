@@ -1,28 +1,21 @@
 import React, {Component} from 'react';
 import { render } from '@testing-library/react';
-import Card from './Card';
-import axios from 'axios';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 class Stack extends Component {
     state = {
         id: 0,
-        title: null,
-        cards: [],
-    }
-    componentDidMount() {
-        axios.get('https://localhost:44393/api/collection')
-        .then(response => {
-            console.log(response.data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+        title: this.props.title,
+        cards: this.props.cards,
     }
     render(){
         return(
-            <div>
-                <Card></Card>
-                <p>This is the stack component!</p>
+            <div className="row">
+                <a href="#" className="list-group-item list-group-item-action flex-column align-items-start active">
+                    <div className="d-flex w-100 justify-content-between">
+                        <h5 className="mb-1">{ this.state.title }</h5>
+                    </div>
+                    <p className="mb-1">{ this.state.length } Cards</p>
+                </a>
             </div>
         )
     }

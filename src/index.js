@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Stack from './Components/Stack';
 import * as serviceWorker from './serviceWorker';
+import Collection from './Components/Collection';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Stack></Stack>
+    <Collection></Collection>
   </React.StrictMode>,
   document.getElementById('root')
 );

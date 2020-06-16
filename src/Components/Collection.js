@@ -18,12 +18,16 @@ class Collection extends Component {
         });
     }
 
+    openStack(i){
+        
+    }
+
     render(){
         const stacks = this.state.stacks;
         return (
-            <div className="container">
                 <div className="row">
                     <div className="col-md-3">
+                        <h2>Your Study Card Sets</h2>
                         <div className="list-group">
                             {stacks.map(function(stack, index){
                                 return(
@@ -34,10 +38,8 @@ class Collection extends Component {
                                 </Stack>
                             )})}
                         </div>
-                        <p>This is the collection component!</p>
                     </div>
                 </div>
-            </div>
         )
     }
 }

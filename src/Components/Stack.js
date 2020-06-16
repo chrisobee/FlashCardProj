@@ -9,12 +9,12 @@ class Stack extends Component {
     }
     render(){
         return(
-            <a href="#" className="list-group-item list-group-item-action flex-column align-items-start active">
+            <button className="list-group-item list-group-item-action flex-column align-items-start active">
                 <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{ this.state.title }</h5>
+                    <h5 className="mb-1">{ this.props.title }</h5>
                 </div>
-                <p className="mb-1">{ this.state.length } Cards</p>
-            </a>
+                <p className="mb-1">{ this.props.cards.length } Cards</p>
+            </button>
         )
     }
 }

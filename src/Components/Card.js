@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 
-class Card extends Component{
-    state = {
-        id: 0,
-        word: null,
-        description: null,
-    };
-    render(){
-        return(
-            <div>
-                <p>This is the card component!</p>
+function Card(props) {
+    return (
+        <div className="col-md-9">
+            <div className="card">
+                <h4 className="card-title">Word</h4>
+                <p className="card-text">{props.word}</p>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Card

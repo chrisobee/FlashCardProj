@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 class Card extends Component{
     state = {

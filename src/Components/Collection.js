@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Stack from './Stack';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 class Collection extends Component {
     state = {
@@ -21,22 +21,23 @@ class Collection extends Component {
     render(){
         const stacks = this.state.stacks;
         return (
-            <div className="row">
-                <div className="col-md-3">
-                    <div className="list-group">
-                        {stacks.map(function(stack, index){
-                            return(
-                            <Stack
-                                key = {index}
-                                title = {stack.title}
-                                cards = {stack.cards}>
-                            </Stack>
-                        )})}
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
+                        <div className="list-group">
+                            {stacks.map(function(stack, index){
+                                return(
+                                <Stack
+                                    key = {index}
+                                    title = {stack.title}
+                                    cards = {stack.cards}>
+                                </Stack>
+                            )})}
+                        </div>
+                        <p>This is the collection component!</p>
                     </div>
-                    <p>This is the collection component!</p>
                 </div>
             </div>
-            
         )
     }
 }

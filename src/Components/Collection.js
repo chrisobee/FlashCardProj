@@ -4,9 +4,13 @@ import axios from 'axios';
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 
 class Collection extends Component {
-    state = {
-        stacks: [],
+    constructor(props){
+        super(props);
+        this.state = {
+            stacks: [],
+        }
     }
+    
     componentDidMount(){
         axios.get('https://localhost:44393/api/collection')
         .then(response => {
@@ -16,6 +20,10 @@ class Collection extends Component {
         .catch(error => {
             console.log(error);
         });
+    }
+
+    changeActiveCollection(i){
+        console.log(`${this.state.stacks[i].title} is now true!`)
     }
 
     openStack(i){
@@ -29,15 +37,20 @@ class Collection extends Component {
                     <div className="col-md-3">
                         <h2>Your Study Card Sets</h2>
                         <div className="list-group">
-                            {stacks.map(function(stack, index){
+                            {stacks.map((stack, index) => {
                                 return(
                                 <Stack
                                     key = {index}
+                                    id = {index}
                                     title = {stack.title}
-                                    cards = {stack.cards}>
+                                    cards = {stack.cards}
+                                    onClick = {() => this.changeActiveCollection(index)}>
                                 </Stack>
                             )})}
                         </div>
+                    </div>
+                    <div className="col-md-9">
+
                     </div>
                 </div>
         )

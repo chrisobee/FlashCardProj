@@ -5,13 +5,13 @@ class Stack extends Component {
     constructor(props){
         super(props);
         this.state = {
-            id: this.props.id,
             title: this.props.title,
             cards: this.props.cards,
-            activeCollection: false
+            activeCollection: false,
+            currentCard: 0
         }
     }
-    
+
     render(){
         return(
             <button 

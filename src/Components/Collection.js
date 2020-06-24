@@ -23,7 +23,7 @@ class Collection extends Component {
     }
 
     changeActiveCollection(i){
-        console.log(`${this.state.stacks[i].title} is now true!`)
+        console.log(`${this.state.stacks[i].title} is now true!`);
     }
 
     openStack(i){
@@ -41,7 +41,6 @@ class Collection extends Component {
                                 return(
                                 <Stack
                                     key = {index}
-                                    id = {index}
                                     title = {stack.title}
                                     cards = {stack.cards}
                                     onClick = {() => this.changeActiveCollection(index)}>
@@ -50,7 +49,14 @@ class Collection extends Component {
                         </div>
                     </div>
                     <div className="col-md-9">
-
+                        {stacks.cards.map((card, index) => {
+                            return (
+                                <Card
+                                    key = {index}
+                                    word = {card.word}
+                                    definition = {card.definition}>
+                                </Card>
+                        )})}
                     </div>
                 </div>
         )
